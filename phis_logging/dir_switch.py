@@ -1,5 +1,7 @@
 from pathlib import Path
 import os
+import shutil
+
 
 def switch_dir():
     cwd = Path.cwd()
@@ -14,3 +16,6 @@ def setup_dir():
 
     if not Path('执行结果').exists():
         Path('执行结果').mkdir(parents=True, exist_ok=True)
+
+    if not Path('执行结果/env.txt').exists():
+        shutil.copy(Path('文档/env.txt'), Path('执行结果/env.txt'))
