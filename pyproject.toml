@@ -1,6 +1,6 @@
 [project]
 name = "phis-logging"
-version = "2025.7.21.2"
+version = "2025.7.21.3"
 description = "logging config and dir switch for PHIS"
 readme = "README.md"
 requires-python = ">=3.12"
