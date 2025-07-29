@@ -4,14 +4,15 @@ from datetime import datetime
 import sys
 
 
-def 配置日志(level=logging.INFO):
+def 配置日志(level=logging.INFO, old_dir_compat=True):
     """
     设置日志同时输出到控制台和文件
     """
     log_folder = '执行日志'
-    from phis_logging.dir_switch import setup_dir
+    if old_dir_compat:
+        from phis_logging.dir_switch import setup_dir
 
-    setup_dir()
+        setup_dir()
     os.makedirs(log_folder, exist_ok=True)
 
     log_filename = os.path.join(
