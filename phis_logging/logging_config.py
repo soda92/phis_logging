@@ -45,7 +45,7 @@ def 配置日志(level=logging.INFO, old_dir_compat=True):
             level=level,
             logger=logger,
             stream=sys.stdout,
-            fmt='%(asctime)s %(name)s[%(process)d] %(levelname)s %(message)s',
+            fmt='%(asctime)s %(name)s [%(filename)s:%(lineno)d] %(levelname)s %(message)s',
         )
     except ImportError:
         # Fallback to standard StreamHandler if coloredlogs is not available
