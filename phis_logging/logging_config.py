@@ -5,7 +5,7 @@ import sys
 
 
 def 配置日志(
-    level=logging.INFO,
+    level=None,
     old_dir_compat=True,
     show_logger_name=True,
     show_filename=False,
@@ -14,6 +14,8 @@ def 配置日志(
     """
     设置日志同时输出到控制台和文件
     """
+    if level is None:
+        log_level = os.environ.get('LOG_LEVEL', 'INFO').upper()
     log_folder = '执行日志'
     if old_dir_compat:
         from phis_logging.dir_switch import setup_dir
@@ -27,7 +29,7 @@ def 配置日志(
 
     # Get the root logger
     logger = logging.getLogger()
-    logger.setLevel(level)
+    logger.setLevel(log_level)
 
     # Prevent adding duplicate handlers
     if logger.hasHandlers():
